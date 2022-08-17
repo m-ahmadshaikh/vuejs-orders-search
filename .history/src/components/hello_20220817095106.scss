@@ -1,0 +1,136 @@
+$color-header: #24262d;
+$color-placeholder: rgba(255, 255, 255, 0.5);
+
+$color-button: #f57e1f;
+$color-placeholder: rgba(255, 255, 255, 0.4);
+
+$btn-size: 60px;
+* {
+  color: white;
+}
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  background-color: #1a171b;
+}
+
+body {
+  color: #fff;
+  letter-spacing: 0.2px;
+  &.search-active {
+    overflow: hidden;
+    opacity: 1;
+    .search-input {
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+    }
+    .icon-close {
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    .control {
+      cursor: default;
+      .btn-material {
+        transform: scale(70);
+      }
+      .icon-material-search {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.icon-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 70px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: rotate(0);
+  }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 48px;
+  }
+}
+
+.search-input {
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  // left: 50px;
+  // margin-top: -40px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(40px, 0);
+  transition: all 0.3s ease-in-out;
+  input {
+    color: #fff;
+    font-size: 54px;
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: 0;
+    font-weight: 200;
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      font-size: 32px;
+    }
+  }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    top: 5%;
+  }
+
+  ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: $color-placeholder;
+  }
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color-placeholder;
+  }
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color-placeholder;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color-placeholder;
+  }
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $color-placeholder;
+  }
+  ::placeholder {
+    /* Most modern browsers support this now. */
+    color: $color-placeholder;
+  }
+}
+
+.control {
+  cursor: pointer;
+  margin: 0 auto;
+  .btn-material {
+    width: $btn-size;
+    height: $btn-size;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background: $color-button;
+    outline: 0;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+  }
+  .icon-material-search {
+    color: #fff;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
